@@ -4,7 +4,7 @@
 #include "Functions.h"
 using namespace std;
 
-std::wstring strToWStr(const std::string& s)
+std::wstring strToWStr(const std::string& s) // to translate a string filled from cin to wstring for ShellExecute function
 {
 	int len;
 	int slength = (int)s.length() + 1;
@@ -20,20 +20,11 @@ std::wstring strToWStr(const std::string& s)
 void menu_2()
 {
 	Sleep(500u);
-
-	string username;
-	//cout << "Введите имя пользователя: ";
-	//cin >> username;
-	//const wstring w_username(username.begin(), username.end());
 	
-	cout << "1. Открыть Калькулятор" << endl;
-	cout << "2. Открыть Проводник" << endl;
-	cout << "3. Открыть свой файл" << endl;
-	cout << "4. Выйти" << endl << endl;
-
-	const string tg = "C:/Users/" + username + "/Desktop/Telegram.lnk";
-	const string zoom = "C:/Users/" + username + "/Desktop/Zoom.lnk";
-	const string disc = "C:/Users" + username + "/Desktop/Discord.lnk";
+	cout << "1. Open calculator" << endl;
+	cout << "2. Open explorer" << endl;
+	cout << "3. Open specific path" << endl;
+	cout << "4. Exit" << endl << endl;
 
 	bool in_menu_2 = true;
 	while (in_menu_2 == true)
@@ -49,7 +40,7 @@ void menu_2()
 		else if (GetAsyncKeyState(VK_NUMPAD3))
 		{
 			string path;
-			cout << "Введите путь: " << endl;
+			cout << "Enter path: " << endl;
 			cin >> path;
 			wstring w_path = strToWStr(path);
 			ShellExecute(0, L"open", w_path.c_str(), NULL, NULL, SW_SHOWNORMAL);
@@ -66,10 +57,10 @@ void menu_1()
 {
 	Sleep(500u);
 
-	cout << "1. Открыть вк" << endl;
-	cout << "2. ДО" << endl;
-	cout << "3. Новгу почта" << endl;
-	cout << "4. Выйти" << endl << endl;
+	cout << "1. Open VK" << endl;
+	cout << "2. DONovsu" << endl;
+	cout << "3. NovsuMail" << endl;
+	cout << "4. Exit" << endl << endl;
 
 	bool in_menu_1 = true;
 	while (in_menu_1 == true)
@@ -98,9 +89,9 @@ bool main_menu()
 {
 	Sleep(500u);
 
-	cout << "1. Открыть сайт" << endl;
-	cout << "2. Открыть приложение" << endl;
-	cout << "3. Выйти" << endl << endl;
+	cout << "1. Open site" << endl;
+	cout << "2. Open application" << endl;
+	cout << "3. Exit" << endl << endl;
 
 	bool in_main_menu = true;
 	while (in_main_menu == true)
